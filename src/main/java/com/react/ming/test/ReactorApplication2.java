@@ -1,14 +1,18 @@
 package com.react.ming.test;
 
+import com.react.ming.part2.util.Log;
 import com.react.ming.test.src.dto.MemberDto;
 import com.react.ming.test.src.service.MemberService;
 import java.time.LocalTime;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.cursor.Cursor;
+import org.apache.ibatis.session.ExecutorType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import reactor.core.publisher.Flux;
 
 @Slf4j
 @SpringBootApplication
@@ -30,8 +34,8 @@ public class ReactorApplication2 {
             memberDto.setAge(11);
             service.insertMember(memberDto);
 
-            MemberDto memberDto1 = service.selectMember(2L);
-            log.info(memberDto1.toString());
+
+            service.selectMember(2L);
 
             log.info("==== 작업 종료 ====");
         };

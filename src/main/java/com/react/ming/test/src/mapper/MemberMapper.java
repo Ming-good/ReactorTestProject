@@ -2,7 +2,7 @@ package com.react.ming.test.src.mapper;
 
 import com.react.ming.test.src.dto.MemberDto;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.cursor.Cursor;
 
 @Mapper
 public interface MemberMapper {
@@ -10,5 +10,5 @@ public interface MemberMapper {
     int insertMember(MemberDto member);
 
     //Member 조회
-    MemberDto selectMemeber(@Param("memberId") Long memberId);
+    Cursor<MemberDto> selectMemeber();
 }
